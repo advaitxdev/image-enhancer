@@ -19,6 +19,10 @@ export const enhanceImageAPI = async (file) => {
 const uploadImage = async (file) => {
     //uploading image to api
     // /api/tasks/visual/scale
+    const formData = new FormData();
+    formData.append("file", file);
+
+    await axios
     return taskId
 }
 
