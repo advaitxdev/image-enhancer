@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ImageUpload from "./ImageUpload";
 import ImagePreview from "./ImagePreview";
+import { enhanceImageAPI } from "../utils/enhanceImageApi";
 
 const Home = () => {
   const [uploadImage, setUploadImage] = useState(null);
@@ -14,15 +15,13 @@ const Home = () => {
     try {
       const enhancedURL = await enhanceImageAPI(file);
       setEnhancedImage(enhancedURL);
-      setLoading(false)
-    } catch (error) {
-      
-    }
-  }
+      setLoading(false);
+    } catch (error) {}
+  };
 
   return (
     <>
-      <ImageUpload UploadImageHandler={UploadImageHandler } />
+      <ImageUpload UploadImageHandler={UploadImageHandler} />
       <ImagePreview
         loading={loading}
         uploaded={uploadImage}
